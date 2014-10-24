@@ -13,7 +13,7 @@ public class Logica {
 	
 	public void algoritmo(){
 		
-		abiertos.
+//		abiertos.
 	}
 	
 	
