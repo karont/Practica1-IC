@@ -1,11 +1,29 @@
+import Modelo.Mapa;
+import Modelo.Nodo;
+
 
 public class main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("Hola");
-		System.out.println("adios");
-		System.out.println("alvarito ya tengo esto funcionando");
+		
+		int m = 10;
+		int n = 10;
+		Mapa mapa = new Mapa(m,n);
+		
+		mapa.setSalida(new Nodo(1,1));
+		mapa.setMeta(new Nodo(7,8));
+		
+		
+	
+		
+		
+		for(int i=0; i<m;i++){
+			for(int j=0; j<n;j++){
+				System.out.print(mapa.getCasilla(new Nodo(i, j)));
+			}
+			System.out.println();
+		}
 	}
 
 }
