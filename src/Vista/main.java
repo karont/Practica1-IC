@@ -17,22 +17,28 @@ public class main {
 		ventana.getContentPane().setFocusable(false);
 		ventana.setFocusable(false);
 		
-		JPanel panel = new JPanel();
-		double anchopanel =800*5/6;
-		double altopanel =  600*5/6;
-		panel.setBounds(0, 0, (int)anchopanel,(int)altopanel);
-		panel.setLayout(null);
-		ventana.getContentPane().add(panel);
+		JPanel paneldeceldas = new JPanel();
+		double anchopanelceldas =ancho*5/6;
+		double altopanelceldas =  alto*19/20;
+		paneldeceldas.setBounds(0, 0, (int)anchopanelceldas,(int)altopanelceldas);
+		paneldeceldas.setLayout(null);
+		ventana.getContentPane().add(paneldeceldas);
 		
-		int numcolumnas = 6;
-		int numfilas = 6;
-		double anchodelacelda= (anchopanel )/(numcolumnas);
-		double altodelacelda= (altopanel) / (numfilas);
+		JPanel paneldeopciones = new JPanel();
+		double anchopanelopciones = ancho - anchopanelceldas;
+		double altopanelopciones = alto;
+		paneldeopciones.setBounds((int)ancho*5/6, 0, (int)anchopanelopciones,(int) altopanelopciones);
+		
+		
+		int numcolumnas = 10;
+		int numfilas = 10;
+		double anchodelacelda= (anchopanelceldas )/(numcolumnas);
+		double altodelacelda= (altopanelceldas) / (numfilas);
 		for(int i = 0; i<numcolumnas; i++)
 		{
 			for (int e = 0; e<numfilas;e++)
 			{
-				panel.add(new Celda((int)anchodelacelda*i, (int)altodelacelda*e,(int)anchodelacelda,(int)altodelacelda));
+				paneldeceldas.add(new Celda((int)anchodelacelda*i, (int)altodelacelda*e,(int)anchodelacelda,(int)altodelacelda));
 			}
 		}
 		ventana.setVisible(true);
