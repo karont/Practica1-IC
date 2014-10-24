@@ -1,4 +1,5 @@
 package Vista;
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -40,9 +41,14 @@ public class Celda extends JButton{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
-				System.out.println("estoy dentro del boton");
+				tratarcelda();
 			}
 		});
+	}
+	void tratarcelda()
+	{
+		this.setBackground(Color.RED);
+		
 	}
 	
 }
