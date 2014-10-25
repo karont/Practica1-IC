@@ -7,7 +7,7 @@ public class Casilla {
  public double g;
  public double h;
  public double f;
- boolean abierto;
+ public boolean abierto;
  
  public Casilla(Nodo n, boolean abierto){
 	 this.nodo = n;
