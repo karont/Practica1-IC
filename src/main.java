@@ -15,8 +15,8 @@ public class main {
 //		Controlador controlador = new Controlador();
 //		controlador.arrancaaplicacion();
 	/*********** PRUEBAS*****************/
-		int m = 6;
-		int n = 6;
+		int m = 10;
+		int n = 10;
 		Mapa mapa = new Mapa(m,n);
 		
 	
@@ -28,7 +28,7 @@ public class main {
 		mapa.setObstaculo(new Nodo(2,3));
 		mapa.setObstaculo(new Nodo(0,2));
 		mapa.setObstaculo(new Nodo(2,2));
-		mapa.setObstaculo(new Nodo(3,0));
+		
 		
 		Logica logica = new Logica(mapa, new Nodo(5,0), new Nodo(3,5));
 		Deque<Casilla> solucion = logica.algoritmo();

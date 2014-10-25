@@ -4,6 +4,9 @@ import java.awt.Color;
 
 import javax.swing.JButton;
 
+import Modelo.Logica;
+import Modelo.Mapa;
+import Modelo.Nodo;
 import Vista.Celda;
 import Vista.PanelCeldas;
 import Vista.VentanaPrincipal;
@@ -104,7 +107,8 @@ public class Controlador {
 	}
 	public void calcularRecorrido()
 	{
-		
-		
+//		Mapa mapa = new Mapa(10,10);
+//		Logica logica = new Logica(mapa, new Nodo(5,0), new Nodo(3,5));
+//		logica.algoritmo();
 	}
 }
