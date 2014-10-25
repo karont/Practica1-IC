@@ -5,6 +5,7 @@ import java.awt.event.WindowEvent;
 import java.util.Deque;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 import Modelo.Casilla;
 import Modelo.Logica;
@@ -163,12 +164,16 @@ public class Controlador {
 		Nodo nllegada = new Nodo(llegada.getposx(),llegada.getposy());
 		Logica logica = new Logica(mapa, nsalida, nllegada);
 		Deque<Casilla> solucion = logica.algoritmo();
-		
-		while( solucion.size()>0)
+		if (solucion != null)
 		{
-			panel.getceldaenpos(solucion.getFirst().nodo.x, solucion.getFirst().nodo.y).setBackground(new Color(232,241,114));
-			solucion.removeFirst();
+			while( solucion.size()>0)
+			{
+				panel.getceldaenpos(solucion.getFirst().nodo.x, solucion.getFirst().nodo.y).setBackground(new Color(232,241,114));
+				solucion.removeFirst();
+			}
+			terminado = true;
 		}
-		terminado = true;
+		else
+			new JOptionPane().showMessageDialog(null,"No hay camino posible para alcanzar la meta.");
 	}
 }
