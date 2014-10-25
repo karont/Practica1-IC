@@ -6,10 +6,16 @@ package Modelo;
 /* 3 indica meta*/
 
 public class Mapa {
-	private int [][] matriz;
+	private Casilla [][] matriz;
 	
 	public Mapa(int m, int n) {
-		matriz = new int [m][n];
+		matriz = new Casilla [m][n];
+		
+		for(int i=0; i<m;i++){
+			for(int j=0; j<n;j++){
+				matriz[i][j] = new Casilla(new Nodo(i,j),true);
+			}
+		}
 	}
 	
 	/**
@@ -18,7 +24,7 @@ public class Mapa {
 	 * @param n
 	 */
 	public void setObstaculo(Nodo nodo){
-		matriz[nodo.x][nodo.y] = 1;
+		matriz[nodo.x][nodo.y] = new Casilla(nodo,false);
 	}
 	
 
@@ -26,20 +32,20 @@ public class Mapa {
 	 * Inicializa la salida
 	 * @param m
 	 * @param n
-	 */
+	 *//*
 	public void setSalida(Nodo nodo){
 		matriz[nodo.x][nodo.y] = 2;
-	}
+	}*/
 	/**
 	 * Inicializa la meta
 	 * @param m
 	 * @param n
-	 */
+	 *//*
 	public void setMeta(Nodo nodo){
 		matriz[nodo.x][nodo.y] = 3;
 	}
-	
-	public int getCasilla(Nodo nodo){
+	*/
+	public Casilla getCasilla(Nodo nodo){
 		return matriz[nodo.x][nodo.y];
 	}
 }

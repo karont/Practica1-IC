@@ -7,12 +7,14 @@ public class Casilla {
  public double g;
  public double h;
  public double f;
+ boolean abierto;
  
- public Casilla(Nodo n){
+ public Casilla(Nodo n, boolean abierto){
 	 this.nodo = n;
 	 this.padre = null;
 	 this.g = 0;
 	 this.h = 0;
 	 this.f = 0;
+	 this.abierto = abierto;
  }
 }

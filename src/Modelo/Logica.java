@@ -6,14 +6,16 @@ import java.util.ArrayList;
 public class Logica {
 	
 	private ArrayList <Casilla> abiertos;
-	private ArrayList<Casilla> cerrados;
+	//private ArrayList<Casilla> cerrados;
+	private Mapa mapa;
 	private Casilla meta;
 	private Casilla salida;
 	
-	public Logica(ArrayList<Casilla> cerrados, Casilla m, Casilla s){
-		this.cerrados = cerrados;
-		this.meta = m;
-		this.salida = s;
+	public Logica(Mapa mapa, Nodo m, Nodo s){
+		//this.cerrados = cerrados;
+		this.mapa = mapa;
+		this.meta = mapa.getCasilla(m);
+		this.salida = mapa.getCasilla(s);
 	}
 	
 	public void algoritmo(){
@@ -23,7 +25,7 @@ public class Logica {
 		
 		while(!abiertos.isEmpty()){
 			
-			actual = buscar();
+			actual = buscarFMenor();
 			
 		}
 	}
@@ -46,9 +48,9 @@ public class Logica {
 		
 	}
 	
-	public Casilla buscar(){
+	public Casilla buscarFMenor(){
 		
-		Casilla seleccionada = new Casilla(null);
+		Casilla seleccionada = new Casilla(null,true);
 		
 		for (Casilla actual : abiertos) {
 			if(seleccionada.f > actual.f)

@@ -13,19 +13,19 @@ public class main {
 		int n = 10;
 		Mapa mapa = new Mapa(m,n);
 		
-		mapa.setSalida(new Nodo(1,1));
-		mapa.setMeta(new Nodo(7,8));
+//		mapa.setSalida(new Nodo(1,1));
+//		mapa.setMeta(new Nodo(7,8));
 		
 		
 	
 		
 		
-		for(int i=0; i<m;i++){
-			for(int j=0; j<n;j++){
-				System.out.print(mapa.getCasilla(new Nodo(i, j)));
-			}
-			System.out.println();
-		}
+//		for(int i=0; i<m;i++){
+//			for(int j=0; j<n;j++){
+//				System.out.print(mapa.getCasilla(new Nodo(i, j)));
+//			}
+//			System.out.println();
+//		}
 	}
 
 }
