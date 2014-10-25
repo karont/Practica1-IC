@@ -113,12 +113,18 @@ public class Controlador {
 	}
 	public void calcularRecorrido()
 	{
-		Celda salida =((PanelCeldas)ventana.getContentPane().getComponent(0)).getSalidaMarcada();
-		Celda llegada =((PanelCeldas)ventana.getContentPane().getComponent(0)).getLlegadaMarcada();
+		PanelCeldas panel =((PanelCeldas)ventana.getContentPane().getComponent(0));
+		Celda salida =panel.getSalidaMarcada();
+		Celda llegada =panel.getLlegadaMarcada();
 		Nodo nsalida = new Nodo(salida.getposx(), salida.getposy());
 		Nodo nllegada = new Nodo(llegada.getposx(),llegada.getposy());
 		Logica logica = new Logica(mapa, nsalida, nllegada);
-		Deque<Casilla> hola = logica.algoritmo();
+		Deque<Casilla> solucion = logica.algoritmo();
 		
+		while( solucion.size()>0)
+		{
+			panel.getceldaenpos(solucion.getFirst().nodo.x, solucion.getFirst().nodo.y).setBackground(new Color(232,241,114));
+			solucion.removeFirst();
+		}
 	}
 }
