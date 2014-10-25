@@ -72,5 +72,13 @@ public class Celda extends JButton{
 		this.controlador.marcarCelda(this);
 		
 	}
+	public int getposx()
+	{
+		return posicionx;
+	}
+	public int getposy()
+	{
+		return posiciony;
+	}
 	
 }

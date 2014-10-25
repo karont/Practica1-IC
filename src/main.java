@@ -12,10 +12,10 @@ public class main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-//		Controlador controlador = new Controlador();
-//		controlador.arrancaaplicacion();
+		Controlador controlador = new Controlador();
+		controlador.arrancaaplicacion();
 	/*********** PRUEBAS*****************/
-		int m = 10;
+/*		int m = 10;
 		int n = 10;
 		Mapa mapa = new Mapa(m,n);
 		
@@ -32,9 +32,9 @@ public class main {
 		
 		Logica logica = new Logica(mapa, new Nodo(5,0), new Nodo(3,5));
 		Deque<Casilla> solucion = logica.algoritmo();
-		
+		*/
 	/***Muestra un mapa en la consola****/
-		System.out.print("  ");
+	/*	System.out.print("  ");
 		for(int j=0; j<n;j++){
 			System.out.print(j+ " ");
 		}
@@ -67,7 +67,7 @@ public class main {
 				System.out.println("x = "+casilla.nodo.x + ",y = "+casilla.nodo.y);
 			}
 		}
-		else System.out.println("No se puede alcanzar la meta");
+		else System.out.println("No se puede alcanzar la meta");*/
 		/**********************************************/
 	}
 

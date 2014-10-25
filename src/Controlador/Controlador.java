@@ -1,9 +1,11 @@
 package Controlador;
 
 import java.awt.Color;
+import java.util.Deque;
 
 import javax.swing.JButton;
 
+import Modelo.Casilla;
 import Modelo.Logica;
 import Modelo.Mapa;
 import Modelo.Nodo;
@@ -16,11 +18,13 @@ public class Controlador {
 	enum Marcarcasilla{salida,llegada,obstaculo,nada};
 	Marcarcasilla estado;
 	VentanaPrincipal ventana;
+	Mapa mapa;
 	
 	public void arrancaaplicacion()
 	{
 		estado = Marcarcasilla.obstaculo;
 		ventana = new VentanaPrincipal(this);
+		mapa = new Mapa(10,10);
 	}
 	
 	public void setEstadoSalida()
@@ -99,6 +103,8 @@ public class Controlador {
 						((PanelCeldas)ventana.getContentPane().getComponent(0)).setLlegadaMarcada(null);
 					}
 					celda.setBackground(Color.RED);
+					mapa.setObstaculo(new Nodo(celda.getposx(),celda.getposy()));
+					//si se quita obstaculo quitarlo del mapa
 					break;
 			case nada:
 					break;
@@ -107,8 +113,12 @@ public class Controlador {
 	}
 	public void calcularRecorrido()
 	{
-//		Mapa mapa = new Mapa(10,10);
-//		Logica logica = new Logica(mapa, new Nodo(5,0), new Nodo(3,5));
-//		logica.algoritmo();
+		Celda salida =((PanelCeldas)ventana.getContentPane().getComponent(0)).getSalidaMarcada();
+		Celda llegada =((PanelCeldas)ventana.getContentPane().getComponent(0)).getLlegadaMarcada();
+		Nodo nsalida = new Nodo(salida.getposx(), salida.getposy());
+		Nodo nllegada = new Nodo(llegada.getposx(),llegada.getposy());
+		Logica logica = new Logica(mapa, nsalida, nllegada);
+		Deque<Casilla> hola = logica.algoritmo();
+		
 	}
 }
