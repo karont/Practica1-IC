@@ -47,4 +47,8 @@ public class PanelCeldas extends JPanel{
 	{
 		llegadamarcada = marcada;
 	}
+	public Celda getceldaenpos(int x, int y)
+	{
+		return matrizdeceldas[x][y];
+	}
 }
