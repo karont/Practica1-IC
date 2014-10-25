@@ -57,6 +57,7 @@ public class Controlador {
 				else if(celda.isMarcadacomoobstaculo())
 				{
 					celda.setMarcadaComoObstaculo(false);
+					mapa.removeObstaculo(celda.getposx(),celda.getposy());
 				}
 				if(((PanelCeldas)ventana.getContentPane().getComponent(0)).getSalidaMarcada() == null)
 				{
@@ -78,6 +79,11 @@ public class Controlador {
 				{
 					celda.setMarcadacomosalida(false);
 					((PanelCeldas)ventana.getContentPane().getComponent(0)).setSalidaMarcada(null);
+				}
+				else if(celda.isMarcadacomoobstaculo())
+				{
+					celda.setMarcadaComoObstaculo(false);
+					mapa.removeObstaculo(celda.getposx(),celda.getposy());
 				}
 				
 				if(((PanelCeldas)ventana.getContentPane().getComponent(0)).getLlegadaMarcada() == null)
@@ -105,11 +111,19 @@ public class Controlador {
 						celda.setMarcadacomollegada(false);
 						((PanelCeldas)ventana.getContentPane().getComponent(0)).setLlegadaMarcada(null);
 					}
-					
-					celda.setBackground(Color.RED);
-					mapa.setObstaculo(new Nodo(celda.getposx(),celda.getposy()));
-					System.out.println(celda.getposx()+" "+celda.getposy());
-					//si se quita obstaculo quitarlo del mapa
+					else if(celda.isMarcadacomoobstaculo())
+					{
+						celda.setMarcadaComoObstaculo(false);
+						celda.setBackground(null);
+						mapa.removeObstaculo(celda.getposx(),celda.getposy());
+					}
+					else
+					{
+						celda.setBackground(Color.RED);
+						celda.setMarcadaComoObstaculo(true);
+						mapa.setObstaculo(new Nodo(celda.getposx(),celda.getposy()));
+						System.out.println(celda.getposx()+" "+celda.getposy());
+					}
 					break;
 			case nada:
 					break;
