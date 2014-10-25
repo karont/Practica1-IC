@@ -47,7 +47,9 @@ public class BtnMarcarSalida extends JButton
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				controlador.setEstadoSalida();
 			}
 		});
+		
 	}
 }

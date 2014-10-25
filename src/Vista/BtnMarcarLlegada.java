@@ -47,6 +47,7 @@ public class BtnMarcarLlegada extends JButton{
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				controlador.setEstadoLLegada();
 			}
 		});
 	}
