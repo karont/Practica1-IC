@@ -1,3 +1,4 @@
+
 package Modelo;
 
 public class Casilla {
@@ -6,7 +7,6 @@ public class Casilla {
  public double g;
  public double h;
  public double f;
-
  
  public Casilla(Nodo n){
 	 this.nodo = n;
