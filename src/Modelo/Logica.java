@@ -34,7 +34,7 @@ public class Logica {
 			
 			actual = buscarFMenor();
 			
-			System.out.println("x = "+actual.nodo.x + ",y = "+actual.nodo.y);
+			//System.out.println("x = "+actual.nodo.x + ",y = "+actual.nodo.y);
 			expandir(actual);
 			if(actual.nodo.x == meta.nodo.x && actual.nodo.y == meta.nodo.y){
 				finalizado = true;

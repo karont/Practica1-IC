@@ -122,7 +122,7 @@ public class Controlador {
 						celda.setBackground(Color.RED);
 						celda.setMarcadaComoObstaculo(true);
 						mapa.setObstaculo(new Nodo(celda.getposx(),celda.getposy()));
-						System.out.println(celda.getposx()+" "+celda.getposy());
+						//System.out.println(celda.getposx()+" "+celda.getposy());
 					}
 					break;
 			case nada:
