@@ -47,6 +47,7 @@ public class BtnMarcarObstaculos extends JButton{
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				controlador.setEstadoObstaculo();
 			}
 		});
 	}

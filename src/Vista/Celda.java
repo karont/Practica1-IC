@@ -11,6 +11,9 @@ public class Celda extends JButton{
 	int posicionx;
 	int posiciony;
 	Controlador controlador;
+	boolean marcadacomollegada;
+	boolean marcadacomosalida;
+	
 	public Celda(int x, int y,int width ,int height,int posicionx,int posiciony,Controlador controlador)
 	{
 		this.controlador = controlador;
@@ -51,6 +54,18 @@ public class Celda extends JButton{
 				tratarcelda();
 			}
 		});
+	}
+	public boolean isMarcadacomollegada() {
+		return marcadacomollegada;
+	}
+	public void setMarcadacomollegada(boolean marcadacomollegada) {
+		this.marcadacomollegada = marcadacomollegada;
+	}
+	public boolean isMarcadacomosalida() {
+		return marcadacomosalida;
+	}
+	public void setMarcadacomosalida(boolean marcadacomosalida) {
+		this.marcadacomosalida = marcadacomosalida;
 	}
 	void tratarcelda()
 	{
