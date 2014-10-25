@@ -51,8 +51,7 @@ public class Logica {
 	
 	private void iniciar(){
 		abiertos = new ArrayList<Casilla>();
-		salida.h = distancia(salida, meta);
-		
+		salida.h = distancia(salida, meta);	
 		abiertos.add(salida);
 	}
 	

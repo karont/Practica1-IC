@@ -1,6 +1,7 @@
 package Controlador;
 
 import java.awt.Color;
+import java.awt.event.WindowEvent;
 import java.util.Deque;
 
 import javax.swing.JButton;
@@ -16,35 +17,60 @@ import Vista.VentanaPrincipal;
 public class Controlador {
 	
 	enum Marcarcasilla{salida,llegada,obstaculo,nada};
-	Marcarcasilla estado;
+	Marcarcasilla estado = Marcarcasilla.nada;
 	VentanaPrincipal ventana;
 	Mapa mapa;
+	boolean terminado;
 	
 	public void arrancaaplicacion()
 	{
-		estado = Marcarcasilla.obstaculo;
 		ventana = new VentanaPrincipal(this);
 		mapa = new Mapa(10,10);
+		terminado = false;
 	}
-	
+	public void reiniciaraplicacion()
+	{
+		ventana.dispatchEvent(new WindowEvent(ventana, WindowEvent.WINDOW_CLOSING));
+		arrancaaplicacion();
+	}
 	public void setEstadoSalida()
 	{
+		if(terminado == true)
+		{
+			reiniciaraplicacion();
+		}
 		this.estado = Marcarcasilla.salida;
 	}
 	public void setEstadoLLegada()
 	{
+		if(terminado == true)
+		{
+			reiniciaraplicacion();
+		}
 		this.estado = Marcarcasilla.llegada;
 	}
 	public void setEstadoObstaculo()
 	{
+		if(terminado == true)
+		{
+			reiniciaraplicacion();
+		}
 		this.estado= Marcarcasilla.obstaculo;
 	}
 	public void setEstadoNada()
 	{
+		if(terminado == true)
+		{
+			reiniciaraplicacion();
+		}
 		this.estado = Marcarcasilla.nada;
 	}
 	public void marcarCelda(Celda celda )
 	{
+		if(terminado == true)
+		{
+			reiniciaraplicacion();
+		}
 		switch(estado)
 		{
 			case salida:
@@ -122,13 +148,11 @@ public class Controlador {
 						celda.setBackground(Color.RED);
 						celda.setMarcadaComoObstaculo(true);
 						mapa.setObstaculo(new Nodo(celda.getposx(),celda.getposy()));
-						//System.out.println(celda.getposx()+" "+celda.getposy());
 					}
 					break;
 			case nada:
 					break;
 		}
-		
 	}
 	public void calcularRecorrido()
 	{
@@ -145,5 +169,6 @@ public class Controlador {
 			panel.getceldaenpos(solucion.getFirst().nodo.x, solucion.getFirst().nodo.y).setBackground(new Color(232,241,114));
 			solucion.removeFirst();
 		}
+		terminado = true;
 	}
 }
