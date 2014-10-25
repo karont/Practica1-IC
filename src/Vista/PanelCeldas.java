@@ -8,6 +8,7 @@ public class PanelCeldas extends JPanel{
 	
 	Celda[][] matrizdeceldas;
 	Controlador controlador;
+	private Celda salidamarcada;
 	PanelCeldas(int inicioenx,int inicioeny,int ancho,int alto , int filas, int columnas, Controlador controlador)
 	{
 		this.controlador =controlador;
@@ -29,5 +30,12 @@ public class PanelCeldas extends JPanel{
 			}
 		}
 	}
-
+	public Celda getSalidaMarcada()
+	{
+		return salidamarcada;	
+	}
+	public void setSalidaMarcada(Celda marcada)
+	{
+		salidamarcada = marcada;
+	}
 }
