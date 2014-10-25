@@ -104,6 +104,7 @@ public class Controlador {
 					}
 					celda.setBackground(Color.RED);
 					mapa.setObstaculo(new Nodo(celda.getposx(),celda.getposy()));
+					System.out.println(celda.getposx()+" "+celda.getposy());
 					//si se quita obstaculo quitarlo del mapa
 					break;
 			case nada:
