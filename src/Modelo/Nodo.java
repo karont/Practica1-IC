@@ -1,11 +1,11 @@
 package Modelo;
 
 public class Nodo {
-	 public int m;
-	 public int n;
+	 public int x;
+	 public int y;
 	 
-	 public Nodo(int m, int n){
-		 this.m = m;
-		 this.n = n;
+	 public Nodo(int x, int y){
+		 this.x = x;
+		 this.y = y;
 	 }
 }

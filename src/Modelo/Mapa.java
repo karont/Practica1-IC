@@ -18,7 +18,7 @@ public class Mapa {
 	 * @param n
 	 */
 	public void setObstaculo(Nodo nodo){
-		matriz[nodo.m][nodo.n] = 1;
+		matriz[nodo.x][nodo.y] = 1;
 	}
 	
 
@@ -28,7 +28,7 @@ public class Mapa {
 	 * @param n
 	 */
 	public void setSalida(Nodo nodo){
-		matriz[nodo.m][nodo.n] = 2;
+		matriz[nodo.x][nodo.y] = 2;
 	}
 	/**
 	 * Inicializa la meta
@@ -36,10 +36,10 @@ public class Mapa {
 	 * @param n
 	 */
 	public void setMeta(Nodo nodo){
-		matriz[nodo.m][nodo.n] = 3;
+		matriz[nodo.x][nodo.y] = 3;
 	}
 	
 	public int getCasilla(Nodo nodo){
-		return matriz[nodo.m][nodo.n];
+		return matriz[nodo.x][nodo.y];
 	}
 }

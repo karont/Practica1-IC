@@ -10,5 +10,9 @@ public class Casilla {
  
  public Casilla(Nodo n){
 	 this.nodo = n;
+	 this.padre = null;
+	 this.g = 0;
+	 this.h = 0;
+	 this.f = 0;
  }
 }
