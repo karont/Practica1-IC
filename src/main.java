@@ -27,9 +27,12 @@ public class main {
 		mapa.setObstaculo(new Nodo(0,0));
 		mapa.setObstaculo(new Nodo(2,3));
 		mapa.setObstaculo(new Nodo(0,2));
+		mapa.setObstaculo(new Nodo(2,2));
+		mapa.setObstaculo(new Nodo(3,0));
 		
 		Logica logica = new Logica(mapa, new Nodo(5,0), new Nodo(3,5));
 		Deque<Casilla> solucion = logica.algoritmo();
+		
 	/***Muestra un mapa en la consola****/
 		System.out.print("  ");
 		for(int j=0; j<n;j++){
@@ -59,9 +62,12 @@ public class main {
 			System.out.println();
 		}
 		
-		for (Casilla casilla : solucion) {
-			System.out.println("x = "+casilla.nodo.x + ",y = "+casilla.nodo.y);
+		if (solucion != null){
+			for (Casilla casilla : solucion) {
+				System.out.println("x = "+casilla.nodo.x + ",y = "+casilla.nodo.y);
+			}
 		}
+		else System.out.println("No se puede alcanzar la meta");
 		/**********************************************/
 	}
 

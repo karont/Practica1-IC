@@ -110,7 +110,7 @@ public class Logica {
 	
 	private Deque<Casilla> recuperarSolucion(Casilla a) {
 		Deque<Casilla> solucion = new ArrayDeque<Casilla>();
-		
+		a = mapa.getCasilla(a.padre);
 		while((a.nodo.x != salida.nodo.x) || (a.nodo.y != salida.nodo.y)){
 			solucion.add(a);
 			a = mapa.getCasilla(a.padre);
