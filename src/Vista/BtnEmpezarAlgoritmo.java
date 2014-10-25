@@ -12,6 +12,7 @@ public class BtnEmpezarAlgoritmo extends JButton{
 	Controlador controlador;
 	public BtnEmpezarAlgoritmo(int x, int y,int width ,int height,Controlador controlador)
 	{
+		this.controlador = controlador;
 		this.setBounds(x, y, width, height);
 		this.setVisible(true);
 		this.setEnabled(true);

@@ -13,6 +13,7 @@ public class BtnMarcarObstaculos extends JButton{
 	Controlador controlador;
 	public BtnMarcarObstaculos(int x, int y,int width ,int height,Controlador controlador)
 	{
+		this.controlador = controlador;
 		this.setBounds(x, y, width, height);
 		this.setVisible(true);
 		this.setEnabled(true);

@@ -13,6 +13,7 @@ public class Celda extends JButton{
 	Controlador controlador;
 	public Celda(int x, int y,int width ,int height,int posicionx,int posiciony,Controlador controlador)
 	{
+		this.controlador = controlador;
 		this.setBounds(x, y, width, height);
 		this.setVisible(true);
 		this.setEnabled(true);
@@ -53,7 +54,7 @@ public class Celda extends JButton{
 	}
 	void tratarcelda()
 	{
-		this.setBackground(Color.RED);
+		this.controlador.marcarCelda(this);
 		
 	}
 	
