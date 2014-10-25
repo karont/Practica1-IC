@@ -8,6 +8,7 @@ public class main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Controlador controlador = new Controlador();
+		controlador.arrancaaplicacion();
 		int m = 10;
 		int n = 10;
 		Mapa mapa = new Mapa(m,n);
