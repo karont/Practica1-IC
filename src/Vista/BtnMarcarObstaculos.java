@@ -6,9 +6,12 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 
+import Controlador.Controlador;
+
 public class BtnMarcarObstaculos extends JButton{
 	
-	public BtnMarcarObstaculos(int x, int y,int width ,int height)
+	Controlador controlador;
+	public BtnMarcarObstaculos(int x, int y,int width ,int height,Controlador controlador)
 	{
 		this.setBounds(x, y, width, height);
 		this.setVisible(true);

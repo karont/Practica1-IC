@@ -5,8 +5,12 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 
+import Controlador.Controlador;
+
 public class BtnEmpezarAlgoritmo extends JButton{
-	public BtnEmpezarAlgoritmo(int x, int y,int width ,int height)
+	
+	Controlador controlador;
+	public BtnEmpezarAlgoritmo(int x, int y,int width ,int height,Controlador controlador)
 	{
 		this.setBounds(x, y, width, height);
 		this.setVisible(true);

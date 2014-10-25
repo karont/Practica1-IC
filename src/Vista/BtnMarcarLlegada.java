@@ -6,8 +6,12 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 
+import Controlador.Controlador;
+
 public class BtnMarcarLlegada extends JButton{
-	public BtnMarcarLlegada(int x, int y,int width ,int height)
+	
+	Controlador controlador;
+	public BtnMarcarLlegada(int x, int y,int width ,int height,Controlador controlador)
 	{
 		this.setBounds(x, y, width, height);
 		this.setVisible(true);
