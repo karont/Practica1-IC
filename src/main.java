@@ -10,9 +10,9 @@ public class main {
 		Controlador controlador = new Controlador();
 		controlador.arrancaaplicacion();
 		int m = 10;
-		int n = 10;
-		Mapa mapa = new Mapa(m,n);
-		
+		int n = 5;
+	//	Mapa mapa = new Mapa(m,n);
+//		int [][] c = new int[m][n];
 //		mapa.setSalida(new Nodo(1,1));
 //		mapa.setMeta(new Nodo(7,8));
 		
@@ -22,7 +22,7 @@ public class main {
 		
 //		for(int i=0; i<m;i++){
 //			for(int j=0; j<n;j++){
-//				System.out.print(mapa.getCasilla(new Nodo(i, j)));
+//				System.out.print(c[i][j]);
 //			}
 //			System.out.println();
 //		}

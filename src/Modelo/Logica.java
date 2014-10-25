@@ -2,6 +2,8 @@
 package Modelo;
 
 import java.util.ArrayList;
+import java.util.Queue;
+import java.util.Stack;
 
 public class Logica {
 	
@@ -18,46 +20,95 @@ public class Logica {
 		this.salida = mapa.getCasilla(s);
 	}
 	
-	public void algoritmo(){
+	public Stack<Casilla> algoritmo(){
 		
 		iniciar();
 		Casilla actual = null;
-		
-		while(!abiertos.isEmpty()){
+		boolean finalizado = false;
+		Stack<Casilla> resultado = null;
+		while(!abiertos.isEmpty() || finalizado == true){
 			
 			actual = buscarFMenor();
-			
+			expandir(actual);
+			if(actual.nodo.x == meta.nodo.x && actual.nodo.y == meta.nodo.y){
+				finalizado = true;
+			}
 		}
+		
+		if(finalizado == true){
+			resultado = recuperarSolucion(actual);
+		}
+		
+		return resultado;
 	}
 	
 	
-	public void iniciar(){
-		
+	private void iniciar(){
+		abiertos = new ArrayList<Casilla>();
 		salida.h = distancia(salida, meta);
 		
 		abiertos.add(salida);
 	}
 	
-	public double distancia(Casilla a, Casilla b){
+	private double distancia(Casilla a, Casilla b){
 		
 		return Math.sqrt((Math.pow((a.nodo.x - b.nodo.x),2) + Math.pow((a.nodo.y - b.nodo.y),2)));
 		
 	}
 	
-	public void expandir(Casilla a){
+	private void expandir(Casilla a){
+		
+		heuristica(mapa.arriba(a),a);
+		heuristica(mapa.abajo(a),a);
+		heuristica(mapa.derecha(a),a);
+		heuristica(mapa.izquierda(a),a);
+		heuristica(mapa.arribaDerecha(a),a);
+		heuristica(mapa.arribaIzquierda(a),a);
+		heuristica(mapa.abajoDerecha(a),a);
+		heuristica(mapa.abajoIzquierda(a),a);
 		
 	}
 	
-	public Casilla buscarFMenor(){
+	private void heuristica(Casilla c, Casilla p){
+		
+		if(c!=null && c.abierto == true){
+			c.padre = p.nodo;
+			c.g = p.g + distancia(c,p);
+			c.h = distancia(c,meta);
+			c.f = c.g + c.h;
+			abiertos.add(c);
+		}
+	}
+	private Casilla buscarFMenor(){
 		
 		Casilla seleccionada = new Casilla(null,true);
 		
 		for (Casilla actual : abiertos) {
-			if(seleccionada.f > actual.f)
+			if(actual.nodo.x == meta.nodo.x && actual.nodo.y == meta.nodo.y){
+				actual.abierto = false;
+				abiertos.remove(actual);
+				return actual;
+			}
+				
+			else if(seleccionada.f > actual.f)
 				seleccionada = actual;
+			
 		}
+		abiertos.remove(seleccionada);
+		seleccionada.abierto = false;
 		return seleccionada;
 		
+	}
+	
+	private Stack<Casilla> recuperarSolucion(Casilla a) {
+		Stack<Casilla> solucion = new Stack<Casilla>();
+		
+		while((a.nodo.x != salida.nodo.x) && (a.nodo.y != salida.nodo.y)){
+			solucion.add(a);
+			a = mapa.getCasilla(a.padre);
+		}
+	
+		return null;
 	}
 }
 
