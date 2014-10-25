@@ -46,6 +46,7 @@ public class BtnEmpezarAlgoritmo extends JButton{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				controlador.setEstadoNada();
+				controlador.calcularRecorrido();
 			}
 		});
 	}
