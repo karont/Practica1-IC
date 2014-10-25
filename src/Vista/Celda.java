@@ -70,7 +70,7 @@ public class Celda extends JButton{
 	}
 	public boolean isMarcadacomoobstaculo()
 	{
-		return marcadacomollegada;
+		return marcadacomoobstaculo;
 	}
 	public void setMarcadaComoObstaculo(boolean marcadacomoobstaculo)
 	{

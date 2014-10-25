@@ -34,7 +34,9 @@ public class Mapa {
 	public void removeObstaculo(Nodo nodo){
 		matriz[nodo.x][nodo.y].abierto = true;
 	}
-
+	public void removeObstaculo(int x, int y){
+		matriz[x][y].abierto = true;
+	}
 	/**
 	 * Inicializa la salida
 	 * @param m
