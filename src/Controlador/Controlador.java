@@ -54,7 +54,10 @@ public class Controlador {
 					celda.setMarcadacomollegada(false);
 					((PanelCeldas)ventana.getContentPane().getComponent(0)).setLlegadaMarcada(null);
 				}
-				
+				else if(celda.isMarcadacomoobstaculo())
+				{
+					celda.setMarcadaComoObstaculo(false);
+				}
 				if(((PanelCeldas)ventana.getContentPane().getComponent(0)).getSalidaMarcada() == null)
 				{
 					celda.setBackground(new Color(72, 124,210));
@@ -102,6 +105,7 @@ public class Controlador {
 						celda.setMarcadacomollegada(false);
 						((PanelCeldas)ventana.getContentPane().getComponent(0)).setLlegadaMarcada(null);
 					}
+					
 					celda.setBackground(Color.RED);
 					mapa.setObstaculo(new Nodo(celda.getposx(),celda.getposy()));
 					System.out.println(celda.getposx()+" "+celda.getposy());
