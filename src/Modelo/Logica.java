@@ -34,9 +34,9 @@ public class Logica {
 			
 			actual = buscarFMenor();
 			
-			System.out.println("x = "+actual.nodo.y + ",y = "+actual.nodo.x);
+			System.out.println("x = "+actual.nodo.x + ",y = "+actual.nodo.y);
 			expandir(actual);
-			if(actual.nodo.y == meta.nodo.y && actual.nodo.x == meta.nodo.x){
+			if(actual.nodo.x == meta.nodo.x && actual.nodo.y == meta.nodo.y){
 				finalizado = true;
 			}
 		}
@@ -58,7 +58,7 @@ public class Logica {
 	
 	private Double distancia(Casilla a, Casilla b){
 		
-		return Math.sqrt((Math.pow((a.nodo.y - b.nodo.y),2) + Math.pow((a.nodo.x - b.nodo.x),2)));
+		return Math.sqrt((Math.pow((a.nodo.x - b.nodo.x),2) + Math.pow((a.nodo.y - b.nodo.y),2)));
 		
 	}
 	
@@ -92,7 +92,7 @@ public class Logica {
 		Casilla seleccionada = new Casilla(null,true);
 		seleccionada.f = Double.MAX_VALUE;
 		for (Casilla actual : abiertos) {
-			if(actual.nodo.y == meta.nodo.y && actual.nodo.x == meta.nodo.x){
+			if(actual.nodo.x == meta.nodo.x && actual.nodo.y == meta.nodo.y){
 				actual.abierto = false;
 				abiertos.remove(actual);
 				return actual;
@@ -111,7 +111,7 @@ public class Logica {
 	private Deque<Casilla> recuperarSolucion(Casilla a) {
 		Deque<Casilla> solucion = new ArrayDeque<Casilla>();
 		a = mapa.getCasilla(a.padre);
-		while((a.nodo.y != salida.nodo.y) || (a.nodo.x != salida.nodo.x)){
+		while((a.nodo.x != salida.nodo.x) || (a.nodo.y != salida.nodo.y)){
 			solucion.add(a);
 			a = mapa.getCasilla(a.padre);
 		}

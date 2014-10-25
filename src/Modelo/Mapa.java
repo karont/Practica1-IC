@@ -28,11 +28,11 @@ public class Mapa {
 	 * @param n
 	 */
 	public void setObstaculo(Nodo nodo){
-		matriz[nodo.y][nodo.x].abierto = false;
+		matriz[nodo.x][nodo.y].abierto = false;
 	}
 	
 	public void removeObstaculo(Nodo nodo){
-		matriz[nodo.y][nodo.x].abierto = true;
+		matriz[nodo.x][nodo.y].abierto = true;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class Mapa {
 	}
 	*/
 	public Casilla getCasilla(Nodo nodo){
-		return matriz[nodo.y][nodo.x];
+		return matriz[nodo.x][nodo.y];
 	}
 
 	public Casilla[][] getMatriz() {
@@ -61,54 +61,54 @@ public class Mapa {
 	}
 	/***********************************/
 	public Casilla derecha(Casilla c){
-		if (!(c.nodo.x+1 >= n))
-			return matriz[c.nodo.y][c.nodo.x+1];
+		if (!(c.nodo.y+1 >= n))
+			return matriz[c.nodo.x][c.nodo.y+1];
 		else
 			return null;
 	}
 	
 	public Casilla izquierda(Casilla c){
-		if (!(c.nodo.x-1 < 0))
-			return matriz[c.nodo.y][c.nodo.x-1];
+		if (!(c.nodo.y-1 < 0))
+			return matriz[c.nodo.x][c.nodo.y-1];
 		else
 			return null;
 	}
 	
 	public Casilla arriba(Casilla c){
-		if (!(c.nodo.y-1 < 0))
-			return matriz[c.nodo.y-1][c.nodo.x];
+		if (!(c.nodo.x-1 < 0))
+			return matriz[c.nodo.x-1][c.nodo.y];
 		else
 			return null;
 	}
 	
 	public Casilla abajo(Casilla c){
-		if (!(c.nodo.y+1 >= m))
-			return matriz[c.nodo.y+1][c.nodo.x];
+		if (!(c.nodo.x+1 >= m))
+			return matriz[c.nodo.x+1][c.nodo.y];
 		else
 			return null;
 	}
 	
 	public Casilla arribaDerecha(Casilla c){
-		if (!(c.nodo.y-1 < 0 || c.nodo.x+1 >= n))
-			return matriz[c.nodo.y-1][c.nodo.x+1];
+		if (!(c.nodo.x-1 < 0 || c.nodo.y+1 >= n))
+			return matriz[c.nodo.x-1][c.nodo.y+1];
 		else
 			return null;
 	}
 	public Casilla arribaIzquierda(Casilla c){
-		if (!(c.nodo.y-1 < 0 || c.nodo.x-1 < 0))
-			return matriz[c.nodo.y-1][c.nodo.x-1];
+		if (!(c.nodo.x-1 < 0 || c.nodo.y-1 < 0))
+			return matriz[c.nodo.x-1][c.nodo.y-1];
 		else
 			return null;
 	}
 	public Casilla abajoDerecha(Casilla c){
-		if (!(c.nodo.y+1 >= m  || c.nodo.x+1 >= n))
-			return matriz[c.nodo.y+1][c.nodo.x+1];
+		if (!(c.nodo.x+1 >= m  || c.nodo.y+1 >= n))
+			return matriz[c.nodo.x+1][c.nodo.y+1];
 		else
 			return null;
 	}
 	public Casilla abajoIzquierda(Casilla c){
-		if (!(c.nodo.y+1 >= m || c.nodo.x-1 < 0))
-			return matriz[c.nodo.y+1][c.nodo.x-1];
+		if (!(c.nodo.x+1 >= m || c.nodo.y-1 < 0))
+			return matriz[c.nodo.x+1][c.nodo.y-1];
 		else
 			return null;
 	}
