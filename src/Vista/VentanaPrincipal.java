@@ -1,11 +1,6 @@
 package Vista;
-import java.awt.Color;
-import java.awt.Rectangle;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
 import javax.swing.*;
-public class main {
+public class VentanaPrincipal {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -27,8 +22,15 @@ public class main {
 		JPanel paneldeopciones = new JPanel();
 		double anchopanelopciones = ancho - anchopanelceldas;
 		double altopanelopciones = alto;
-		paneldeopciones.setBounds((int)ancho*5/6, 0, (int)anchopanelopciones,(int) altopanelopciones);
+		int iniciopanelopciones=(int)ancho*5/6;
+		paneldeopciones.setBounds(iniciopanelopciones, 0, (int)anchopanelopciones,(int) altopanelopciones);
+		paneldeopciones.setLayout(null);
+		ventana.getContentPane().add(paneldeopciones);
 		
+		paneldeopciones.add(new BtnMarcarObstaculos(iniciopanelopciones, alto/10,(int) anchopanelopciones*9/10, (int)altopanelopciones/10));
+		paneldeopciones.add(new BtnMarcarSalida(iniciopanelopciones, alto*3/10, (int) anchopanelopciones*9/10, (int)altopanelopciones/10));
+		paneldeopciones.add(new BtnMarcarLlegada(iniciopanelopciones, alto/2,(int) anchopanelopciones*9/10,(int) altopanelopciones/10));
+		paneldeopciones.add(new BtnEmpezarAlgoritmo(iniciopanelopciones, alto*7/10,(int) anchopanelopciones*9/10,(int) altopanelopciones/10));
 		
 		int numcolumnas = 10;
 		int numfilas = 10;
