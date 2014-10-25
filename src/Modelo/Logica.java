@@ -78,11 +78,11 @@ public class Logica {
 	private void heuristica(Casilla c, Casilla p){
 		
 		if(c!=null && c.abierto == true){
-			c.padre = p.nodo;
-			c.g = p.g + distancia(c,p);
-			c.h = distancia(c,meta);
-			c.f = c.g + c.h;
 			if(!abiertos.contains(c)){
+				c.padre = p.nodo;
+				c.g = p.g + distancia(c,p);
+				c.h = distancia(c,meta);
+				c.f = c.g + c.h;
 				abiertos.add(c);
 			}
 		}
