@@ -60,35 +60,35 @@ public class Mapa {
 		return matriz;
 	}
 	/***********************************/
-	public Casilla derecha(Casilla c){
+	public Casilla abajo(Casilla c){
 		if (!(c.nodo.y+1 >= n))
 			return matriz[c.nodo.x][c.nodo.y+1];
 		else
 			return null;
 	}
 	
-	public Casilla izquierda(Casilla c){
+	public Casilla arriba(Casilla c){
 		if (!(c.nodo.y-1 < 0))
 			return matriz[c.nodo.x][c.nodo.y-1];
 		else
 			return null;
 	}
 	
-	public Casilla arriba(Casilla c){
+	public Casilla izquierda(Casilla c){
 		if (!(c.nodo.x-1 < 0))
 			return matriz[c.nodo.x-1][c.nodo.y];
 		else
 			return null;
 	}
 	
-	public Casilla abajo(Casilla c){
+	public Casilla derecha(Casilla c){
 		if (!(c.nodo.x+1 >= m))
 			return matriz[c.nodo.x+1][c.nodo.y];
 		else
 			return null;
 	}
 	
-	public Casilla arribaDerecha(Casilla c){
+	public Casilla abajoIzquierda(Casilla c){
 		if (!(c.nodo.x-1 < 0 || c.nodo.y+1 >= n))
 			return matriz[c.nodo.x-1][c.nodo.y+1];
 		else
@@ -106,7 +106,7 @@ public class Mapa {
 		else
 			return null;
 	}
-	public Casilla abajoIzquierda(Casilla c){
+	public Casilla arribaDerecha(Casilla c){
 		if (!(c.nodo.x+1 >= m || c.nodo.y-1 < 0))
 			return matriz[c.nodo.x+1][c.nodo.y-1];
 		else
