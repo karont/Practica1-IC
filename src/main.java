@@ -1,4 +1,8 @@
+import java.util.Deque;
+import java.util.Stack;
+
 import Controlador.Controlador;
+import Modelo.Casilla;
 import Modelo.Logica;
 import Modelo.Mapa;
 import Modelo.Nodo;
@@ -14,7 +18,7 @@ public class main {
 		int m = 6;
 		int n = 6;
 		Mapa mapa = new Mapa(m,n);
-		Logica logica = new Logica(mapa, new Nodo(5,0), new Nodo(3,5));
+		
 	
 		mapa.setObstaculo(new Nodo(5,1));
 		mapa.setObstaculo(new Nodo(4,1));
@@ -24,8 +28,9 @@ public class main {
 		mapa.setObstaculo(new Nodo(2,3));
 		mapa.setObstaculo(new Nodo(0,2));
 		
-		
-	
+		Logica logica = new Logica(mapa, new Nodo(5,0), new Nodo(3,5));
+		Deque<Casilla> solucion = logica.algoritmo();
+	/***Muestra un mapa en la consola****/
 		System.out.print("  ");
 		for(int j=0; j<n;j++){
 			System.out.print(j+ " ");
@@ -48,10 +53,14 @@ public class main {
 					System.out.print(0 + " ");
 				
 				else 
-					System.out.print(1+ " ");
+					System.out.print("*"+ " ");
 				
 			}
 			System.out.println();
+		}
+		
+		for (Casilla casilla : solucion) {
+			System.out.println("x = "+casilla.nodo.x + ",y = "+casilla.nodo.y);
 		}
 		/**********************************************/
 	}

@@ -9,8 +9,11 @@ public class Mapa {
 	private Casilla [][] matriz;
 	private int m;
 	private int n;
+	
 	public Mapa(int m, int n) {
 		matriz = new Casilla [m][n];
+		this.m = m;
+		this.n = n;
 		
 		for(int i=0; i<m;i++){
 			for(int j=0; j<n;j++){
@@ -83,25 +86,25 @@ public class Mapa {
 	}
 	
 	public Casilla arribaDerecha(Casilla c){
-		if (!(c.nodo.x-1 > 0 && c.nodo.y+1 <= n))
+		if (!(c.nodo.x-1 < 0 || c.nodo.y+1 >= n))
 			return matriz[c.nodo.x-1][c.nodo.y+1];
 		else
 			return null;
 	}
 	public Casilla arribaIzquierda(Casilla c){
-		if (!(c.nodo.x-1 < 0 && c.nodo.y-1 < 0))
+		if (!(c.nodo.x-1 < 0 || c.nodo.y-1 < 0))
 			return matriz[c.nodo.x-1][c.nodo.y-1];
 		else
 			return null;
 	}
 	public Casilla abajoDerecha(Casilla c){
-		if (!(c.nodo.x+1 >= m  && c.nodo.y+1 >= n))
+		if (!(c.nodo.x+1 >= m  || c.nodo.y+1 >= n))
 			return matriz[c.nodo.x+1][c.nodo.y+1];
 		else
 			return null;
 	}
 	public Casilla abajoIzquierda(Casilla c){
-		if (!(c.nodo.x+1 >= m && c.nodo.y-1 < 0))
+		if (!(c.nodo.x+1 >= m || c.nodo.y-1 < 0))
 			return matriz[c.nodo.x+1][c.nodo.y-1];
 		else
 			return null;

@@ -1,7 +1,9 @@
 
 package Modelo;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -13,22 +15,26 @@ public class Logica {
 	private Casilla meta;
 	private Casilla salida;
 	
-	public Logica(Mapa mapa, Nodo m, Nodo s){
+	public Logica(Mapa mapa, Nodo s, Nodo m){
 		//this.cerrados = cerrados;
 		this.mapa = mapa;
 		this.meta = mapa.getCasilla(m);
 		this.salida = mapa.getCasilla(s);
 	}
 	
-	public Stack<Casilla> algoritmo(){
+	public Deque<Casilla> algoritmo(){
 		
 		iniciar();
+		
 		Casilla actual = null;
 		boolean finalizado = false;
-		Stack<Casilla> resultado = null;
-		while(!abiertos.isEmpty() || finalizado == true){
+		Deque<Casilla> resultado = null;
+		
+		while(!abiertos.isEmpty() && finalizado == false){
 			
 			actual = buscarFMenor();
+			
+			System.out.println("x = "+actual.nodo.x + ",y = "+actual.nodo.y);
 			expandir(actual);
 			if(actual.nodo.x == meta.nodo.x && actual.nodo.y == meta.nodo.y){
 				finalizado = true;
@@ -50,7 +56,7 @@ public class Logica {
 		abiertos.add(salida);
 	}
 	
-	private double distancia(Casilla a, Casilla b){
+	private Double distancia(Casilla a, Casilla b){
 		
 		return Math.sqrt((Math.pow((a.nodo.x - b.nodo.x),2) + Math.pow((a.nodo.y - b.nodo.y),2)));
 		
@@ -76,13 +82,15 @@ public class Logica {
 			c.g = p.g + distancia(c,p);
 			c.h = distancia(c,meta);
 			c.f = c.g + c.h;
-			abiertos.add(c);
+			if(!abiertos.contains(c)){
+				abiertos.add(c);
+			}
 		}
 	}
 	private Casilla buscarFMenor(){
 		
 		Casilla seleccionada = new Casilla(null,true);
-		
+		seleccionada.f = Double.MAX_VALUE;
 		for (Casilla actual : abiertos) {
 			if(actual.nodo.x == meta.nodo.x && actual.nodo.y == meta.nodo.y){
 				actual.abierto = false;
@@ -100,15 +108,15 @@ public class Logica {
 		
 	}
 	
-	private Stack<Casilla> recuperarSolucion(Casilla a) {
-		Stack<Casilla> solucion = new Stack<Casilla>();
+	private Deque<Casilla> recuperarSolucion(Casilla a) {
+		Deque<Casilla> solucion = new ArrayDeque<Casilla>();
 		
-		while((a.nodo.x != salida.nodo.x) && (a.nodo.y != salida.nodo.y)){
+		while((a.nodo.x != salida.nodo.x) || (a.nodo.y != salida.nodo.y)){
 			solucion.add(a);
 			a = mapa.getCasilla(a.padre);
 		}
 	
-		return null;
+		return solucion;
 	}
 }
 
