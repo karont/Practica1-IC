@@ -1,11 +1,11 @@
-import java.util.Deque;
-import java.util.Stack;
+//import java.util.Deque;
+//import java.util.Stack;
 
 import Controlador.Controlador;
-import Modelo.Casilla;
-import Modelo.Logica;
-import Modelo.Mapa;
-import Modelo.Nodo;
+//import Modelo.Casilla;
+//import Modelo.Logica;
+//import Modelo.Mapa;
+//import Modelo.Nodo;
 
 
 public class main {
@@ -15,10 +15,10 @@ public class main {
 		Controlador controlador = new Controlador();
 		controlador.arrancaaplicacion();
 	/*********** PRUEBAS*****************/
-	int m = 10;
+/*	int m = 10;
 		int n = 10;
 		Mapa mapa = new Mapa(m,n);
-/*		
+		
 	
 		mapa.setObstaculo(new Nodo(5,1));
 		mapa.setObstaculo(new Nodo(4,1));

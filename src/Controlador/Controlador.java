@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.event.WindowEvent;
 import java.util.Deque;
 
-import javax.swing.JButton;
+//import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import Modelo.Casilla;
