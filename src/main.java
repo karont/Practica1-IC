@@ -1,11 +1,11 @@
-import java.util.Deque;
-import java.util.Stack;
+//import java.util.Deque;
+//import java.util.Stack;
 
 import Controlador.Controlador;
-import Modelo.Casilla;
-import Modelo.Logica;
-import Modelo.Mapa;
-import Modelo.Nodo;
+//import Modelo.Casilla;
+//import Modelo.Logica;
+//import Modelo.Mapa;
+//import Modelo.Nodo;
 
 
 public class main {

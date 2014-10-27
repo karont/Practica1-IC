@@ -4,13 +4,12 @@ import java.awt.Color;
 import java.awt.event.WindowEvent;
 import java.util.Deque;
 
-import javax.swing.JButton;
+//import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import Modelo.Casilla;
 import Modelo.Logica;
 import Modelo.Mapa;
-import Modelo.Nodo;
 import Vista.Celda;
 import Vista.PanelCeldas;
 import Vista.VentanaPrincipal;
@@ -148,7 +147,7 @@ public class Controlador {
 					{
 						celda.setBackground(Color.RED);
 						celda.setMarcadaComoObstaculo(true);
-						mapa.setObstaculo(new Nodo(celda.getposx(),celda.getposy()));
+						mapa.setObstaculo(celda.getposx(),celda.getposy());
 					}
 					break;
 			case nada:
@@ -160,9 +159,7 @@ public class Controlador {
 		PanelCeldas panel =((PanelCeldas)ventana.getContentPane().getComponent(0));
 		Celda salida =panel.getSalidaMarcada();
 		Celda llegada =panel.getLlegadaMarcada();
-		Nodo nsalida = new Nodo(salida.getposx(), salida.getposy());
-		Nodo nllegada = new Nodo(llegada.getposx(),llegada.getposy());
-		Logica logica = new Logica(mapa, nsalida, nllegada);
+		Logica logica = new Logica(mapa, salida.getposx(), salida.getposy(), llegada.getposx(),llegada.getposy());
 		Deque<Casilla> solucion = logica.algoritmo();
 		if (solucion != null)
 		{
@@ -172,8 +169,9 @@ public class Controlador {
 				solucion.removeFirst();
 			}
 			terminado = true;
+		} else {
+			new JOptionPane();
+			JOptionPane.showMessageDialog(null,"No hay camino posible para alcanzar la meta.");
 		}
-		else
-			new JOptionPane().showMessageDialog(null,"No hay camino posible para alcanzar la meta.");
 	}
 }

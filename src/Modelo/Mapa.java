@@ -1,9 +1,6 @@
 package Modelo;
 /**Clase que tendra el mapa y sus metodos**/
-/* 0 indica vacio*/
-/* 1 indica obstaculo*/
-/* 2 indica salida*/
-/* 3 indica meta*/
+
 
 public class Mapa {
 	private Casilla [][] matriz;
@@ -22,14 +19,15 @@ public class Mapa {
 		}
 	}
 	
-	/**
-	 *  Inicializa los obstaculos
-	 * @param m
-	 * @param n
-	 */
+
 	public void setObstaculo(Nodo nodo){
 		matriz[nodo.x][nodo.y].abierto = false;
 	}
+	
+	public void setObstaculo(int x, int y){
+		matriz[x][y].abierto = false;
+	}
+	
 	
 	public void removeObstaculo(Nodo nodo){
 		matriz[nodo.x][nodo.y].abierto = true;
@@ -56,6 +54,9 @@ public class Mapa {
 	*/
 	public Casilla getCasilla(Nodo nodo){
 		return matriz[nodo.x][nodo.y];
+	}
+	public Casilla getCasilla(int x,int y){
+		return matriz[x][y];
 	}
 
 	public Casilla[][] getMatriz() {
@@ -123,17 +124,10 @@ public class Mapa {
 		return m;
 	}
 
-	public void setM(int m) {
-		this.m = m;
-	}
 
 	public int getN() {
 		return n;
 	}
 
-	public void setN(int n) {
-		this.n = n;
-	}
-	
 	
 }
