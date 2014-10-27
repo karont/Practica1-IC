@@ -30,6 +30,9 @@ public class Mapa {
 	public void setObstaculo(Nodo nodo){
 		matriz[nodo.x][nodo.y].abierto = false;
 	}
+	public void setObstaculo(int x, int y){
+		matriz[x][y].abierto = false;
+	}
 	
 	public void removeObstaculo(Nodo nodo){
 		matriz[nodo.x][nodo.y].abierto = true;

@@ -172,8 +172,9 @@ public class Controlador {
 				solucion.removeFirst();
 			}
 			terminado = true;
+		} else {
+			new JOptionPane();
+			JOptionPane.showMessageDialog(null,"No hay camino posible para alcanzar la meta.");
 		}
-		else
-			new JOptionPane().showMessageDialog(null,"No hay camino posible para alcanzar la meta.");
 	}
 }
