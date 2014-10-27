@@ -24,8 +24,8 @@ public class Logica {
 	public Logica(Mapa mapa, int sx, int sy, int mx, int my){
 		//this.cerrados = cerrados;
 		this.mapa = mapa;
-		this.meta = mapa.getCasilla(new Nodo(sx,sy));
-		this.salida = mapa.getCasilla(new Nodo(mx,my));
+		this.meta = mapa.getCasilla(new Nodo(mx,my));
+		this.salida = mapa.getCasilla(new Nodo(sx,sy));
 	}
 	public Deque<Casilla> algoritmo(){
 		
