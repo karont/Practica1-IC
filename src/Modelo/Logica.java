@@ -4,8 +4,8 @@ package Modelo;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
-//import java.util.Queue;
-//import java.util.Stack;
+import java.util.Queue;
+import java.util.Stack;
 
 public class Logica {
 	
@@ -22,12 +22,6 @@ public class Logica {
 		this.salida = mapa.getCasilla(s);
 	}
 	
-	public Logica(Mapa mapa, int sx, int sy, int mx, int my){
-		//this.cerrados = cerrados;
-		this.mapa = mapa;
-		this.meta = mapa.getCasilla(new Nodo(sx,sy));
-		this.salida = mapa.getCasilla(new Nodo(mx,my));
-	}
 	public Deque<Casilla> algoritmo(){
 		
 		iniciar();
