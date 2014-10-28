@@ -89,6 +89,18 @@ public class Logica {
 				c.f = c.g + c.h;
 				abiertos.add(c);
 			}
+			else{
+				double g = p.g + distancia(c,p);
+				double h = distancia(c,meta);
+				double f  = g+h;
+				
+				if(f < c.f){
+					c.padre = p.nodo;
+					c.g = g;
+					c.h = h;
+					c.f = f;
+				}
+			}
 		}
 	}
 	private Casilla buscarFMenor(){
