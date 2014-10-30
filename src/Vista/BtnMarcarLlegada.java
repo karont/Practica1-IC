@@ -24,7 +24,7 @@ public class BtnMarcarLlegada extends JButton{
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+				controlador.setEstadoLLegada();
 			}
 			
 			@Override
@@ -47,7 +47,7 @@ public class BtnMarcarLlegada extends JButton{
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				controlador.setEstadoLLegada();
+				
 			}
 		});
 	}

@@ -22,7 +22,8 @@ public class BtnEmpezarAlgoritmo extends JButton{
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+				controlador.setEstadoNada();
+				controlador.calcularRecorrido();
 			}
 			
 			@Override
@@ -45,8 +46,7 @@ public class BtnEmpezarAlgoritmo extends JButton{
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				controlador.setEstadoNada();
-				controlador.calcularRecorrido();
+			
 			}
 		});
 	}

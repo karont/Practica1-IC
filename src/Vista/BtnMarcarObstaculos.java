@@ -24,7 +24,7 @@ public class BtnMarcarObstaculos extends JButton{
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+				controlador.setEstadoObstaculo();
 			}
 			
 			@Override
@@ -47,7 +47,7 @@ public class BtnMarcarObstaculos extends JButton{
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				controlador.setEstadoObstaculo();
+			
 			}
 		});
 	}

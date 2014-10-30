@@ -24,7 +24,7 @@ public class BtnMarcarSalida extends JButton
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+				controlador.setEstadoSalida();
 			}
 			
 			@Override
@@ -47,7 +47,7 @@ public class BtnMarcarSalida extends JButton
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				controlador.setEstadoSalida();
+			
 			}
 		});
 		

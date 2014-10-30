@@ -28,7 +28,7 @@ public class Celda extends JButton{
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+				tratarcelda();
 			}
 			
 			@Override
@@ -52,7 +52,7 @@ public class Celda extends JButton{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
-				tratarcelda();
+			
 			}
 		});
 	}
