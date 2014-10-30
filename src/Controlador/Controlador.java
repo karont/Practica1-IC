@@ -160,24 +160,28 @@ public class Controlador {
 		PanelCeldas panel =((PanelCeldas)ventana.getContentPane().getComponent(0));
 		Celda salida =panel.getSalidaMarcada();
 		Celda llegada =panel.getLlegadaMarcada();
-//		Nodo nsalida = new Nodo(salida.getposx(), salida.getposy());
-//		Nodo nllegada = new Nodo(llegada.getposx(),llegada.getposy());
-//		Logica logica = new Logica(mapa, nsalida, nllegada);
-		Logica logica = new Logica(mapa, salida.getposx(), salida.getposy(), llegada.getposx(),llegada.getposy());
-	
-		
-		Deque<Casilla> solucion = logica.algoritmo();
-		if (solucion != null)
+		if(salida == null || llegada == null)
 		{
-			while( solucion.size()>0)
+			JOptionPane.showMessageDialog(null,"Selecciona una salida y una meta.");
+		}
+		else
+		{
+		Logica logica = new Logica(mapa, salida.getposx(), salida.getposy(), llegada.getposx(),llegada.getposy());
+		
+			
+			Deque<Casilla> solucion = logica.algoritmo();
+			if (solucion != null)
 			{
-				panel.getceldaenpos(solucion.getFirst().nodo.x, solucion.getFirst().nodo.y).setBackground(new Color(232,241,114));
-				solucion.removeFirst();
+				while( solucion.size()>0)
+				{
+					panel.getceldaenpos(solucion.getFirst().nodo.x, solucion.getFirst().nodo.y).setBackground(new Color(232,241,114));
+					solucion.removeFirst();
+				}
+				terminado = true;
+			} else {
+				new JOptionPane();
+				JOptionPane.showMessageDialog(null,"No hay camino posible para alcanzar la meta.");
 			}
-			terminado = true;
-		} else {
-			new JOptionPane();
-			JOptionPane.showMessageDialog(null,"No hay camino posible para alcanzar la meta.");
 		}
 	}
 }
