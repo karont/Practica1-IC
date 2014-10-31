@@ -9,6 +9,8 @@ public class Mapa {
 	private Casilla [][] matriz;
 	private int m;
 	private int n;
+	private Casilla meta;
+	private Casilla salida;
 	
 	public Mapa(int m, int n) {
 		matriz = new Casilla [m][n];
@@ -63,25 +65,37 @@ public class Mapa {
 	 * Inicializa la salida
 	 * @param m
 	 * @param n
-	 *//*
+	 */
 	public void setSalida(Nodo nodo){
-		matriz[nodo.x][nodo.y] = 2;
-	}*/
+		salida = new Casilla(nodo);
+	}
+	public void setSalida(int x, int y){
+		salida = new Casilla(new Nodo(x,y));
+	}
 	/**
 	 * Inicializa la meta
 	 * @param m
 	 * @param n
-	 *//*
+	 */
 	public void setMeta(Nodo nodo){
-		matriz[nodo.x][nodo.y] = 3;
+		meta = new Casilla(nodo);
 	}
-	*/
+	public void setMeta(int x, int y){
+		meta = new Casilla(new Nodo(x,y));
+	}
+	public Casilla getMeta(){
+		return meta;
+	}
+	
 	public Casilla getCasilla(Nodo nodo){
 		return matriz[nodo.x][nodo.y];
 	}
 
 	public Casilla[][] getMatriz() {
 		return matriz;
+	}
+	public Casilla getSalida(){
+		return salida;
 	}
 	/***********************************/
 	public Casilla abajo(Casilla c){

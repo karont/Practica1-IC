@@ -15,18 +15,18 @@ public class Logica {
 	private Casilla meta;
 	private Casilla salida;
 	
-	public Logica(Mapa mapa, Nodo s, Nodo m){
+	public Logica(Mapa mapa){
 		//this.cerrados = cerrados;
 		this.mapa = mapa;
-		this.meta = mapa.getCasilla(m);
-		this.salida = mapa.getCasilla(s);
+		this.meta = mapa.getMeta();
+		this.salida = mapa.getSalida();
 	}
-	public Logica(Mapa mapa, int sx, int sy, int mx, int my){
-		//this.cerrados = cerrados;
-		this.mapa = mapa;
-		this.meta = mapa.getCasilla(new Nodo(mx,my));
-		this.salida = mapa.getCasilla(new Nodo(sx,sy));
-	}
+//	public Logica(Mapa mapa, int sx, int sy, int mx, int my){
+//		//this.cerrados = cerrados;
+//		this.mapa = mapa;
+//		this.meta = mapa.getCasilla(new Nodo(mx,my));
+//		this.salida = mapa.getCasilla(new Nodo(sx,sy));
+//	}
 	public Deque<Casilla> algoritmo(){
 		
 		iniciar();

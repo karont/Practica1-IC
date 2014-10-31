@@ -160,13 +160,15 @@ public class Controlador {
 		PanelCeldas panel =((PanelCeldas)ventana.getContentPane().getComponent(0));
 		Celda salida =panel.getSalidaMarcada();
 		Celda llegada =panel.getLlegadaMarcada();
+		mapa.setSalida(salida.getposx(), salida.getposy());
+		mapa.setMeta(llegada.getposx(),llegada.getposy());
 		if(salida == null || llegada == null)
 		{
 			JOptionPane.showMessageDialog(null,"Selecciona una salida y una meta.");
 		}
 		else
 		{
-		Logica logica = new Logica(mapa, salida.getposx(), salida.getposy(), llegada.getposx(),llegada.getposy());
+		Logica logica = new Logica(mapa);
 		
 			
 			Deque<Casilla> solucion = logica.algoritmo();
