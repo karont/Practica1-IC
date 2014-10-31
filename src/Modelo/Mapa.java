@@ -17,7 +17,7 @@ public class Mapa {
 		
 		for(int i=0; i<m;i++){
 			for(int j=0; j<n;j++){
-				matriz[i][j] = new Casilla(new Nodo(i,j),true);
+				matriz[i][j] = new Casilla(new Nodo(i,j));
 			}
 		}
 	}
@@ -39,6 +39,25 @@ public class Mapa {
 	}
 	public void removeObstaculo(int x, int y){
 		matriz[x][y].abierto = true;
+	}
+	
+/********************/
+	public void setPenalizacion(Nodo nodo){
+		matriz[nodo.x][nodo.y].f=(double) 0.5;
+		matriz[nodo.x][nodo.y].penalizacion = true;
+	}
+	public void setPenalizacion(int x, int y){
+		matriz[x][y].f= (double)0.5;
+		matriz[x][y].penalizacion = true;
+	}
+	
+	public void removePenalizacion(Nodo nodo){
+		matriz[nodo.x][nodo.y].f=(double) 0;
+		matriz[nodo.x][nodo.y].penalizacion = false;
+	}
+	public void removePenalizacion(int x, int y){
+		matriz[x][y].f=(double)0;
+		matriz[x][y].penalizacion = false;
 	}
 	/**
 	 * Inicializa la salida

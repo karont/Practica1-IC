@@ -8,22 +8,25 @@ public class Casilla {
  public Double h;
  public Double f;
  public boolean abierto;
+ public boolean penalizacion;
  
- public Casilla(Nodo n, boolean abierto){
+ public Casilla(Nodo n){
 	 this.nodo = n;
 	 this.padre = null;
 	 this.g = (double) 0;
 	 this.h = (double) 0;
 	 this.f = (double) 0;
-	 this.abierto = abierto;
+	 this.abierto = true;
+	 this.penalizacion = false;
  }
  
- public Casilla(int x,int y, boolean abierto){
+ public Casilla(int x,int y){
 	 this.nodo = new Nodo(x,y);
 	 this.padre = null;
 	 this.g = (double) 0;
 	 this.h = (double) 0;
 	 this.f = (double) 0;
-	 this.abierto = abierto;
+	 this.abierto = true;
+	 this.penalizacion = false;
  }
 }

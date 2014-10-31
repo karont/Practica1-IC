@@ -86,13 +86,13 @@ public class Logica {
 				c.padre = p.nodo;
 				c.g = p.g + distancia(c,p);
 				c.h = distancia(c,meta);
-				c.f = c.g + c.h;
+				c.f = c.g + c.h + c.f;
 				abiertos.add(c);
 			}
 			else{
 				double g = p.g + distancia(c,p);
 				double h = distancia(c,meta);
-				double f  = g+h;
+				double f  = g + h + c.f;
 				
 				if(f < c.f){
 					c.padre = p.nodo;
@@ -105,7 +105,7 @@ public class Logica {
 	}
 	private Casilla buscarFMenor(){
 		
-		Casilla seleccionada = new Casilla(null,true);
+		Casilla seleccionada = new Casilla(null);
 		seleccionada.f = Double.MAX_VALUE;
 		for (Casilla actual : abiertos) {
 			if(actual.nodo.x == meta.nodo.x && actual.nodo.y == meta.nodo.y){
